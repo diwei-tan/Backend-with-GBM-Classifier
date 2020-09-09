@@ -43,8 +43,8 @@ def model_gbm(features, labels, test_features, test_ids,
     # Option for user specified hyperparameters
     if hyp is not None:
         # Using early stopping so do not need number of esimators
-        # if 'n_estimators' in hyp:
-        #     del hyp['n_estimators']
+        if 'n_estimators' in hyp:
+            del hyp['n_estimators']
         params = hyp
     
     else:
@@ -61,7 +61,7 @@ def model_gbm(features, labels, test_features, test_ids,
     
     # Build the model
     model = lgb.LGBMClassifier(**params, objective = 'multiclass', 
-                               n_jobs = -1, n_estimators = 10000,
+                               n_jobs = -1, n_estimators = 500,
                                random_state = 10)
     
     # Using stratified kfold cross validation

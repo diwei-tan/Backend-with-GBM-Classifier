@@ -13,6 +13,8 @@ to install required packages, cd to `backend` folder and run:
 
 `pip install -r requirements.txt --user`
 
+It is recommended to create a new environment and pip install. If using `conda` environment and pip is not installed when createing a new environment, simply run `conda install pip` before pip installing with requirement.txt.
+
 ## Run Backend
 
 To run backend, cd to `backend` folder and run:
