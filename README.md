@@ -49,7 +49,7 @@ The following are the possible GET methods that can be used to return the insigh
 
 - `localhost:5000/plot/get_female_head_education_to_target`: This returns a box graph (as an image) of years of eduction against poverty level, divided into whether the head of household was female.
 
-- `localhost:5000/plot/get_female_head_education_to_target`: This returns a violin graph (as an image) of whether the head was female against poverty level. Shows how female heads could point towards higher poverty levels.
+- `localhost:5000/plot/get_female_head_to_target`: This returns a violin graph (as an image) of whether the head was female against poverty level. Shows how female heads could point towards higher poverty levels.
 
 - `localhost:5000/data/get_row_info/<index>`: This returns a json response for individual <index> in the `test_set`. The json response is the following:
   - column_names: names of all the column values of the individual's data
