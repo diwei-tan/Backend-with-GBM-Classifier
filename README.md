@@ -55,3 +55,10 @@ The following are the possible GET methods that can be used to return the insigh
   - column_names: names of all the column values of the individual's data
   - row: values, matched with the column names, of all the columns of the individual's data
   - prediction: prediction of the poverty level, where 1: extreme, 2:moderate, 3: vulnerable, 4: non vulnerable. Value is the string description and not the value 1-4.
+
+## Deployment (Heroku)
+The backend flask application is deployed on Heroku app with the root directory being https://fs-ds-ocbc-test.herokuapp.com/. As such, all the above HTTP calls would work by replacing `localhost:5000/` with `https://fs-ds-ocbc-test.herokuapp.com/`.
+
+For example, to get poverty level breakdown, we can run:
+
+https://fs-ds-ocbc-test.herokuapp.com/plot/get_poverty_breakdown
