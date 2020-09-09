@@ -126,15 +126,31 @@ class Plotter:
         bytes_image.seek(0)
         return bytes_image
 
-    def plot_female_head_to_target(self):
+    def plot_female_head_education_to_target(self):
         head_gender = self.ind_data.loc[self.ind_data['parentesco1'] == 1, ['idhogar', 'female']]
-        temp_data = self.data.merge(head_gender, on = 'idhogar', how = 'left').rename(columns = {'female': 'female-head'})
+        temp_data = self.data.merge(head_gender, on='idhogar', how='left').rename(columns={'female_y': 'female-head'})
 
         f, ax = plt.subplots(figsize=(8, 8))
 
-        sns.boxplot(x = 'Target', y = 'meaneduc', hue = 'female-head', data = self.data)
+        sns.boxplot(x='Target', y='meaneduc', hue='female-head', data=temp_data)
         plt.title('Average Education by Target and Female Head of Household', size = 16)
         plt.xticks([0, 1, 2, 3], POVERTY_MAPPING.values())
+        plt.tight_layout()
+
+        # return as bytes image
+        bytes_image = io.BytesIO()
+        plt.savefig(bytes_image, format='png')
+        bytes_image.seek(0)
+        return bytes_image
+
+    def plot_female_head_to_target(self):
+        head_gender = self.ind_data.loc[self.ind_data['parentesco1'] == 1, ['idhogar', 'female']]
+        temp_data = self.data.merge(head_gender, on='idhogar', how='left').rename(columns={'female_y': 'female-head'})
+
+        f, ax = plt.subplots(figsize=(8, 8))
+
+        sns.violinplot(x='female-head', y='Target', data = temp_data)
+        plt.title('Target by Female Head of Household')
         plt.tight_layout()
 
         # return as bytes image

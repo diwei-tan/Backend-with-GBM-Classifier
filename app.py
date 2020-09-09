@@ -75,6 +75,13 @@ def get_overcrowding_to_target():
                      attachment_filename='plot.png',
                      mimetype='image/png')
 
+@app.route('/plot/get_female_head_education_to_target', methods=['GET'])
+def get_female_head_education_to_target():
+    bytes_obj = plotter.plot_female_head_education_to_target()
+    return send_file(bytes_obj,
+                     attachment_filename='plot.png',
+                     mimetype='image/png')
+
 @app.route('/plot/get_female_head_to_target', methods=['GET'])
 def get_female_head_to_target():
     bytes_obj = plotter.plot_female_head_to_target()
