@@ -22,12 +22,13 @@ app = Flask(__name__)
 print('Retreiving and Preprocessing Data. This may take a few minutes...')
 data = Data()
 final, ind, _ = Datapipeline().preprocess_data(data.train, data.test)
-
+del data
 plotter = Plotter(final, ind)
 print('Final features shape: ', final.shape)
 print('Data processing completed. Loading model...')
 model = Model(final)
 print('Model loaded. Launching Application...')
+del final, ind
 
 @app.route('/')
 def index():
