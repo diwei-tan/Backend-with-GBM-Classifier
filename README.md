@@ -27,6 +27,10 @@ This would setup the flask application as the backend. apis can be accessed thro
 
 For example, we can input `localhost:5000/plot/get_poverty_breakdown` into our browser to get the overall counts for each poverty level.
 
+## Troubleshooting
+
+Should the lgbm model not load as intended, you can train a model using `python train.py`. Doing so will run the training for the ten-fold lgbm classifier, and save iterations of models as `model_<modelaccuracy>_0.txt` in the `root` folder. Choose the model with highest accuracy and rename it `best_model.txt` and place it in `data` folder, replacing the current one. Delete the rest of the models, and rerun `python app.py`. This should solve issues with regards to the lgbm model.
+
 ## HTTP Calls
 
 The following are the possible GET methods that can be used to return the insights or classification of poverty level for the test individuals:
